@@ -17,4 +17,10 @@ servers:
   - url: https://qa.mysite.com
     description: QA Server
   - url: https://prod.mysite.com
-    description: Production Server    
+    description: Production Server 
+paths:
+  /v1/employess:
+    get:
+      responses:
+        '200':
+          description: List of Employees    
