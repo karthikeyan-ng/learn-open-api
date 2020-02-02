@@ -11,3 +11,10 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers: 
+  - url: https://dev.mysite.com
+    description: Development Server
+  - url: https://qa.mysite.com
+    description: QA Server
+  - url: https://prod.mysite.com
+    description: Production Server    
