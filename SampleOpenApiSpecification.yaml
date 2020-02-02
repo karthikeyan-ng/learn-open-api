@@ -8,3 +8,6 @@ info:
     name: Karthikeyan Nithiyanandam
     url: https://www.linkedin.com/in/karthikeyan-nithiyanandam/
     email: karthikeyan.ng@gmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
