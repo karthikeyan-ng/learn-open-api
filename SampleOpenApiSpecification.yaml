@@ -1,0 +1,5 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: 'Employee Service API'
+  description: 'This service provides information about employees'
