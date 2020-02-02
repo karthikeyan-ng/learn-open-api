@@ -24,3 +24,10 @@ paths:
       responses:
         '200':
           description: List of Employees    
+  /v1/beers:
+    get:
+      responses:
+        '200':
+          description: List of Beers
+        '400':
+          description: Not Found
