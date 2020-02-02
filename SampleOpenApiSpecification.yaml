@@ -3,3 +3,4 @@ info:
   version: '1.0'
   title: 'Employee Service API'
   description: 'This service provides information about employees'
+  termsOfService: https://example.com/terms
