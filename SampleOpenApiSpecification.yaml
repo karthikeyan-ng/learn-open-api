@@ -4,3 +4,7 @@ info:
   title: 'Employee Service API'
   description: 'This service provides information about employees'
   termsOfService: https://example.com/terms
+  contact:
+    name: Karthikeyan Nithiyanandam
+    url: https://www.linkedin.com/in/karthikeyan-nithiyanandam/
+    email: karthikeyan.ng@gmail.com
