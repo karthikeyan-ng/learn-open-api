@@ -57,6 +57,20 @@ paths:
                         city:
                           type: string
                           example: Chennai
+                        stateCode:
+                          type: string
+                          minLength: 2
+                          maxLength: 2
+                          description: 2 letter state codes
+                          # we can represents enum in 2 different ways
+                          #enum: [TN, AP, KN, KL, GA, TS]  # 1st way
+                          enum:                            # 2nd way
+                            - TN
+                            - AP
+                            - KN
+                            - KL
+                            - GA
+                            - TS
                         zipCode:
                           type: string
                           example: 123456
