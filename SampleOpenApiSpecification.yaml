@@ -32,24 +32,7 @@ paths:
                 maxItems: 100
                 description: List of Employees
                 items:
-                  type: object
-                  description: Employee object
-                  properties:
-                    id:
-                      type: string
-                      format: uuid
-                    firstname:
-                      type: string
-                      minLength: 2
-                      maxLength: 100
-                      example: Karthikeyan
-                    lastname:
-                      type: string
-                      minLength: 2
-                      maxLength: 100
-                      example: Nithiyanandam
-                    address:
-                      $ref: "#/components/schemas/Address"
+                  $ref: "#/components/schemas/Employee"
   /v1/beers:
     get:
       responses:
@@ -113,4 +96,23 @@ components:
             - TS
         zipCode:
           type: string
-          example: 123456          
+          example: 123456
+    Employee:
+      type: object
+      description: Employee object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstname:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: Karthikeyan
+        lastname:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: Nithiyanandam
+        address:
+          $ref: "#/components/schemas/Address"         
