@@ -49,31 +49,7 @@ paths:
                       maxLength: 100
                       example: Nithiyanandam
                     address:
-                      type: object
-                      properties:
-                        line1:
-                          type: string
-                          example: My address info
-                        city:
-                          type: string
-                          example: Chennai
-                        stateCode:
-                          type: string
-                          minLength: 2
-                          maxLength: 2
-                          description: 2 letter state codes
-                          # we can represents enum in 2 different ways
-                          #enum: [TN, AP, KN, KL, GA, TS]  # 1st way
-                          enum:                            # 2nd way
-                            - TN
-                            - AP
-                            - KN
-                            - KL
-                            - GA
-                            - TS
-                        zipCode:
-                          type: string
-                          example: 123456
+                      $ref: "#/components/schemas/Address"
   /v1/beers:
     get:
       responses:
@@ -110,3 +86,31 @@ paths:
                           type: string
         '400':
           description: Not Found
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: My address info
+        city:
+          type: string
+          example: Chennai
+        stateCode:
+          type: string
+          minLength: 2
+          maxLength: 2
+          description: 2 letter state codes
+          # we can represents enum in 2 different ways
+          #enum: [TN, AP, KN, KL, GA, TS]  # 1st way
+          enum:                            # 2nd way
+            - TN
+            - AP
+            - KN
+            - KL
+            - GA
+            - TS
+        zipCode:
+          type: string
+          example: 123456          
