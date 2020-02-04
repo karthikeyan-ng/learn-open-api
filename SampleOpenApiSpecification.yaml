@@ -27,12 +27,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                minItems: 1
-                maxItems: 100
-                description: List of Employees
-                items:
-                  $ref: "#/components/schemas/Employee"
+                $ref: "#/components/schemas/EmployeeList"
   /v1/beers:
     get:
       responses:
@@ -115,4 +110,11 @@ components:
           maxLength: 100
           example: Nithiyanandam
         address:
-          $ref: "#/components/schemas/Address"         
+          $ref: "#/components/schemas/Address"
+    EmployeeList:
+      type: array
+      minItems: 1
+      maxItems: 100
+      description: List of Employees
+      items:
+         $ref: "#/components/schemas/Employee"
