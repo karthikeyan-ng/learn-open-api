@@ -73,6 +73,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Employee"            
+    delete:
+      summary: Delete Employee by Id
+      description: Delete a single **Employees** by it's Id value
+      tags: 
+        - Employees
+      operationId: deleteEmployeeByIdV1
+      parameters: 
+        - $ref: "#/components/parameters/EmployeeIdPathParam"
+      responses:
+        '200':
+          description: Employee Deleted    
     put:
       summary: Update Employee by Id
       description: Update Employee by id
@@ -146,6 +157,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Beer"          
+    delete:
+      summary: Delete Beer by Id
+      description: Delete a single **Beer** by it's Id value
+      tags: 
+        - Beers
+      operationId: deleteBeerByIdV1
+      parameters: 
+        - $ref: "#/components/parameters/BeerIdPathParam"
+      responses:
+        '200':
+          description: Beer Deleted     
     put:
       summary: Update Beer by Id
       description: Update Beer by id
