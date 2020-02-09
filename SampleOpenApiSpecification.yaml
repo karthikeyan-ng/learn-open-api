@@ -21,6 +21,8 @@ servers:
 paths:
   /v1/employess:
     get:
+      summary: List Employees
+      description: Get a List of *Employees* in the system       
       parameters: 
         - $ref: "#/components/parameters/PageNumberParam"
         - $ref: "#/components/parameters/PageSizeParam"   
@@ -33,6 +35,8 @@ paths:
                 $ref: "#/components/schemas/EmployeePagedList"
   /v1/employess/{employeeId}:
     get:
+      summary: Get Employee by Id
+      description: Get a single **Employees** by it's Id value    
       parameters: 
         - name: employeeId
           in: path
@@ -50,6 +54,8 @@ paths:
                 $ref: "#/components/schemas/Employee"            
   /v1/beers:
     get:
+      summary: List Beers
+      description: Get a List of *Beer* in the system    
       parameters: 
         - $ref: "#/components/parameters/PageNumberParam"
         - $ref: "#/components/parameters/PageSizeParam"   
@@ -64,6 +70,8 @@ paths:
           description: Not Found
   /v1/beers/{beerId}:
     get:
+      summary: Get Beer by Id
+      description: Get a single **Beer** by it's Id value    
       parameters: 
         - name: beerId
           in: path
