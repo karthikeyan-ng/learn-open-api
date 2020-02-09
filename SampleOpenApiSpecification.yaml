@@ -256,7 +256,13 @@ paths:
           description: Bad Request
         '409':
           description: Conflict
+security: 
+  - BasicAuth: []
 components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic  
   parameters:
     PageNumberParam:
       name: pageNumber
