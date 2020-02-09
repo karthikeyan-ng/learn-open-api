@@ -22,21 +22,8 @@ paths:
   /v1/employess:
     get:
       parameters: 
-        - name: pageNumber
-          in: query
-          description: Page Number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: pageSize
-          in: query
-          description: Page Size
-          required: false
-          schema:
-            type: integer
-            format: int32
-            default: 25    
+        - $ref: "#/components/parameters/PageNumberParam"
+        - $ref: "#/components/parameters/PageSizeParam"   
       responses:
         '200':
           description: List of Employees
@@ -47,21 +34,8 @@ paths:
   /v1/beers:
     get:
       parameters: 
-        - name: pageNumber
-          in: query
-          description: Page Number
-          schema:
-            type: integer
-            format: int32
-            default: 1
-        - name: pageSize
-          in: query
-          description: Page Size
-          required: false
-          schema:
-            type: integer
-            format: int32
-            default: 25    
+        - $ref: "#/components/parameters/PageNumberParam"
+        - $ref: "#/components/parameters/PageSizeParam"   
       responses:
         '200':
           description: List of Beers
@@ -72,6 +46,25 @@ paths:
         '400':
           description: Not Found
 components:
+  parameters:
+    PageNumberParam:
+      name: pageNumber
+      in: query
+      description: Page Number
+      required: false
+      schema:
+        type: integer
+        format: int32
+        default: 1
+    PageSizeParam:
+      name: pageSize
+      in: query
+      description: Page Size
+      required: false
+      schema:
+        type: integer
+        format: int32
+        default: 25
   schemas:
     Address:
       type: object
