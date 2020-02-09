@@ -113,6 +113,53 @@ paths:
           description: Bad Request
         '409':
           description: Conflict  
+  /v1/employees/{employeeId}/orders:
+    parameters:
+      - $ref: "#/components/parameters/EmployeeIdPathParam"
+    post:
+      description: Place Order
+      tags: 
+        - Order Service
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BeerOrder"
+      responses:
+        '201':
+          description: Order Created
+          headers:
+            location:
+              description: Reference to created Order
+              schema:
+                type: string
+                format: uri
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '409':
+          description: Conflict
+      callbacks:
+        orderStatusChange:
+          '${request.body#/orderStatusCallback}':
+            description: Webhook for order status change notification
+            post:
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        orderId:
+                          type: string
+                          format: uuid
+                        orderStatus:
+                          type: string
+              responses:
+                '200':
+                  description: Okay  
   /v1/beers:
     get:
       summary: List Beers
@@ -335,6 +382,54 @@ components:
       description: List of Beers
       items:
          $ref: "#/components/schemas/Beer"
+    BeerOrder:
+      required:
+      - employeeId
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+          readOnly: true
+        employeeId:
+          type: string
+          format: uuid
+        employeeRef:
+          type: string
+          nullable: true
+        beerOrderLines:
+          type: array
+          items:
+            $ref: '#/components/schemas/BeerOrderLine'
+        orderStatusCallbackUrl:
+          type: string
+          format: uri
+    BeerOrderLine:
+      required:
+      - orderQuantity
+      - upc
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+          readOnly: true
+        beerId:
+          type: string
+          format: uuid
+          readOnly: true
+        upc:
+          type: string
+        orderQuantity:
+          maximum: 999
+          minimum: 1
+          type: integer
+        quantityAllocated:
+          type: integer
+          nullable: true
+          readOnly: true    
     BeerPagedList:
       type: object
       allOf:
