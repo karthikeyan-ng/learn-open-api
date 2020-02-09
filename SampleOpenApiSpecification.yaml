@@ -25,6 +25,7 @@ paths:
       description: Get a List of *Employees* in the system       
       tags: 
         - Employees      
+      operationId: listEmployeesV1
       parameters: 
         - $ref: "#/components/parameters/PageNumberParam"
         - $ref: "#/components/parameters/PageSizeParam"   
@@ -41,6 +42,7 @@ paths:
       description: Get a single **Employees** by it's Id value    
       tags: 
         - Employees      
+      operationId: getCustomerByIdV1
       parameters: 
         - name: employeeId
           in: path
@@ -62,6 +64,7 @@ paths:
       description: Get a List of *Beer* in the system    
       tags: 
         - Beers      
+      operationId: listBeersV1
       parameters: 
         - $ref: "#/components/parameters/PageNumberParam"
         - $ref: "#/components/parameters/PageSizeParam"   
@@ -80,6 +83,7 @@ paths:
       description: Get a single **Beer** by it's Id value    
       tags: 
         - Beers      
+      operationId: getBeerByIdV1
       parameters: 
         - name: beerId
           in: path
