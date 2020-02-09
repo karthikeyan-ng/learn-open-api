@@ -36,6 +36,20 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/EmployeePagedList"
+    post:
+      summary: New Employee
+      description: Create a new Employee
+      tags: 
+        - Employees
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Employee"
+      responses:
+        '201':
+          description: Employee Created  
   /v1/employess/{employeeId}:
     get:
       summary: Get Employee by Id
