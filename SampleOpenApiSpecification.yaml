@@ -133,18 +133,12 @@ paths:
   /v1/beers/{beerId}:
     get:
       summary: Get Beer by Id
-      description: Get a single **Beer** by it's Id value    
+      description: Get a single **Beer** by it's Id value
       tags: 
-        - Beers      
+        - Beers
       operationId: getBeerByIdV1
       parameters: 
-        - name: beerId
-          in: path
-          description: Beer Id
-          required: true
-          schema:
-            type: string
-            format: uuid
+        - $ref: "#/components/parameters/BeerIdPathParam"
       responses:
         '200':
           description: Found Beer
@@ -152,6 +146,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Beer"          
+    put:
+      summary: Update Beer by Id
+      description: Update Beer by id
+      tags: 
+        - Beers
+      operationId: updateBeerByIdV1
+      parameters: 
+        - $ref: "#/components/parameters/BeerIdPathParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Beer"
+      responses:
+        '204':
+          description: Beer Updated        
 components:
   parameters:
     PageNumberParam:
@@ -176,6 +187,14 @@ components:
       name: employeeId
       in: path
       description: Employee Id
+      required: true
+      schema:
+        type: string
+        format: uuid   
+    BeerIdPathParam:
+      name: beerId
+      in: path
+      description: Beer Id
       required: true
       schema:
         type: string
