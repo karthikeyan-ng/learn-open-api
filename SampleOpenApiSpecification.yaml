@@ -23,6 +23,8 @@ paths:
     get:
       summary: List Employees
       description: Get a List of *Employees* in the system       
+      tags: 
+        - Employees      
       parameters: 
         - $ref: "#/components/parameters/PageNumberParam"
         - $ref: "#/components/parameters/PageSizeParam"   
@@ -37,6 +39,8 @@ paths:
     get:
       summary: Get Employee by Id
       description: Get a single **Employees** by it's Id value    
+      tags: 
+        - Employees      
       parameters: 
         - name: employeeId
           in: path
@@ -56,6 +60,8 @@ paths:
     get:
       summary: List Beers
       description: Get a List of *Beer* in the system    
+      tags: 
+        - Beers      
       parameters: 
         - $ref: "#/components/parameters/PageNumberParam"
         - $ref: "#/components/parameters/PageSizeParam"   
@@ -72,6 +78,8 @@ paths:
     get:
       summary: Get Beer by Id
       description: Get a single **Beer** by it's Id value    
+      tags: 
+        - Beers      
       parameters: 
         - name: beerId
           in: path
