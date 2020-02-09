@@ -63,15 +63,9 @@ paths:
       description: Get a single **Employees** by it's Id value    
       tags: 
         - Employees      
-      operationId: getCustomerByIdV1
+      operationId: getEmployeeByIdV1
       parameters: 
-        - name: employeeId
-          in: path
-          description: Employee Id
-          required: true
-          schema:
-            type: string
-            format: uuid
+        - $ref: "#/components/parameters/EmployeeIdPathParam"
       responses:
         '200':
           description: Found Employee
@@ -79,6 +73,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Employee"            
+    put:
+      summary: Update Employee by Id
+      description: Update Employee by id
+      tags: 
+        - Employees
+      operationId: updateEmployeeByIdV1
+      parameters: 
+        - $ref: "#/components/parameters/EmployeeIdPathParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/schemas/Employee"
+      responses:
+        '204':
+          description: Employee Updated  
   /v1/beers:
     get:
       summary: List Beers
@@ -161,6 +172,14 @@ components:
         type: integer
         format: int32
         default: 25
+    EmployeeIdPathParam:
+      name: employeeId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+        format: uuid   
   schemas:
     Address:
       type: object
