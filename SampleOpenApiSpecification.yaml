@@ -258,11 +258,16 @@ paths:
           description: Conflict
 security: 
   - BasicAuth: []
+  - JwtAuthToken: []
 components:
   securitySchemes:
     BasicAuth:
       type: http
       scheme: basic  
+    JwtAuthToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  
   parameters:
     PageNumberParam:
       name: pageNumber
