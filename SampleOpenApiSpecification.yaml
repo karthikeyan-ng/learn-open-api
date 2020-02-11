@@ -36,6 +36,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/EmployeePagedList"
+      security: []      
     post:
       summary: New Employee
       description: Create a new Employee
@@ -79,6 +80,7 @@ paths:
                 $ref: "#/components/schemas/Employee"            
         '404':
           description: Not Found    
+      security: []    
     delete:
       summary: Delete Employee by Id
       description: Delete a single **Employees** by it's Id value
